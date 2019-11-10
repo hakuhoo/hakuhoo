@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>matlab往年试题</title>
+    <url>/2019/11/09/matlab%E8%AF%95%E9%A2%98%E7%AD%94%E6%A1%88/</url>
+    <content><![CDATA[<p>一、矩阵运算<br>(1)A=[1,2,3;4,5,6;7,8,0];A(1,:)<em>A(:,3)<br>ans=15<br>(2)A=[1,2,3;4,5,6;7,8,0];(A.</em>A)’<br>ans=   [1 16 49<br>            4 25 64<br>            9 36 0 ]</p>
+<a id="more"></a>
+<p>(3)A=[1,2,3;4,5,6;7,8,0];sum(A(:))<br>ans=36<br>(4)A=reshape(1:9,3,3);A(4,4)=111;A(:,5)=222<br>ans=   [1 4 7  0    222<br>            2 5 8  0    222<br>            3 6 9  0    222<br>            0 0 0 111 222]</p>
+<p>二、求解常微分方程的MatLab命令<br>zeta=0.3;<br>[t,y]=ode45(@odefun,[0,30],[1;1],[],zeta);<br>plot(t,y(:,1));<br>function dy=odefun(t,y,zeta)<br>dy(1)=y(2);<br>dy(2)=1-y(1)-2<em>zeta</em>y(2);<br>dy=dy(:);<br>end</p>
+<p>三、利用rand函数构造5×5矩阵z<br>1.将z对角线元素清零<br>z=rand(5);<br>z=z-diag(diag(z));<br>2.将z中第二行除以2pi<br>z=rand(5);<br>z(2,:)=z(2,:)/(2<em>pi);<br>3.将第一列与第五列相乘结果放在第一列<br>z=rand(5);<br>z(:,1)=z(:,1).</em>z(:,5);</p>
+<p>四、对边长5m的正方形铁板，在四个角减去四个相等的正方形以制成正方形无盖水槽，问如何使水槽容积最大。<br>fv=@(x)(-(5-2<em>x)^2</em>x);%匿名函数：当减去的正方形边长为x，其容积为-fv(x)<br>xmax=fminbnd(fv,0,2.5)<br>Vmax=-fv(xmax)</p>
+<p>五、计算下表达式，n=99，x=[0,1]并按10等分取值。（不使用FOR、WHILE）<br>n=1:2:99;<br>x=linspace(0,1,10);<br>[xx,nn]=meshgrid(x,n);<br>z=nn.<em>(-1).^((nn-1)/2)./((pi</em>nn).^2+4*xx.^2);<br>y=sum(z);<br>plot(x,y)</p>
+<p>六、填空题<br>(1)在[10,30]上生成均匀分布的3阶随机矩阵的命令是<br>10+20<em>rand(3)<br>(2)MatLab中求数值积分、常微分方程数值解的命令是<br>int,ode45<br>(3)分别写出矩阵的左除、点乘、转置的命令<br>\  .</em>  ‘<br>(4)MatLab中常用的逻辑关系操作符有</p>
+<blockquote>
+<p>&lt; == &gt;= &lt;= ~= &amp; | ~<br>(5)求矩阵特征值和相应特征向量的命令是<br>[V,D]=eig(A)<br>(6)目前常用的四种滤波行为是：<br>低通、高通、带通、带阻</p>
+</blockquote>
+<p>七、加窗是数据处理中常用的方式，列举出三种以上加窗方式，同时给出MatLab函数的调用格式(即添加长度n的信号窗，获得信号w)<br>矩形窗w=boxcar(n)<br>海明窗w=hamming(n)<br>汉宁窗w=hann(n)<br>布莱克曼窗w=blackman(n)<br>三角窗w=triang(n)<br>凯撒窗w=kaiser(n)</p>
+<p>八、MatLab中快速傅里叶变换的函数为：fft，假设数组经过快速傅里叶变换得到结果y1，则y1的第一个点为直流分量，y1中其他点和原始信号幅度的关系为y1中其他点的值为原始信号幅度A的N/2倍，N为y1长度。</p>
+<p>九、滤波<br>Fs=1000;<br>N=1000;n=0:N-1;<br>t=0:1/Fs:1-1/Fs;<br>Signal_Original=sin(2<em>pi</em>10<em>t)+sin(2</em>pi<em>20</em>t);<br>Noise_White=rand(1,1000);<br>Mix_Signal=Signal_Original+Noise_White;<br>对信号设计一个8阶截止频率为50Hz的巴特沃斯低通滤波器并进行滤波数据处理。<br>Wc=50/(Fs/2);<br>[b,a]=butter(8,Wc,’low’);<br>signal_filtered=filter(b,a,Mix_Signal);<br>plot(t,Mix_Signal,t,signal_filtered);</p>
+<p>十、将[0,2pi]区间离散100个点，绘制y=x<em>exp(-x)曲线，其中曲线为红色圆圈实线，并在图中标注x轴、y轴，标题为“曲线：x</em>exp(x)”<br>x=linspace(0,2<em>pi,100);<br>y=x.</em>exp(-x);<br>plot(x,y,’ro-‘);<br>xlabel(‘x’);<br>ylabel(‘y’);<br>title(‘曲线：x*exp(x)’);</p>
+<p>…</p>
+]]></content>
+      <categories>
+        <category>-随笔</category>
+      </categories>
+      <tags>
+        <tag>mechanics</tag>
+      </tags>
+  </entry>
+</search>
